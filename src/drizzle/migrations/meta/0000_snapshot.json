@@ -253,7 +253,7 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true,
-          "default": "'Hey! It looks like you are from <b>{country}</b>. We support Parity Purchasing Power, so if you need it, use code <b>“{coupon}”</b> to get <b>{discount}%</b> off.'"
+          "default": "'Hey! It looks like you are from <b>{country}</b>. We support Arcbot, so if you need it, use code <b>“{coupon}”</b> to get <b>{discount}%</b> off.'"
         },
         "background_color": {
           "name": "background_color",

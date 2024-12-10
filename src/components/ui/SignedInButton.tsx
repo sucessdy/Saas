@@ -1,4 +1,4 @@
-import { ClerkProvider, SignUpButton } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 import React from "react";
 import { Button } from "./button";
 import { ArrowRightIcon } from "lucide-react";

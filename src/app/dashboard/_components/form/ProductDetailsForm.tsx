@@ -1,5 +1,4 @@
 "use client";
-
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -16,22 +15,31 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { createProduct } from "@/server/actions/products";
+import { createProduct, updateProduct } from "@/server/actions/products";
 import { useToast } from "@/hooks/use-toast";
 
-export function ProductDetailsForm() {
+export function ProductDetailsForm({
+  product,
+}: {
+  product?: {
+    id: string;
+    name: string;
+    description: string | null;
+    url: string;
+  };
+}) {
   const toast = useToast();
   const form = useForm<z.infer<typeof ProductDetailsSchema>>({
     resolver: zodResolver(ProductDetailsSchema),
-    defaultValues: {
+    defaultValues: product?  {...product, description : product.description?? ""  }:  {
       name: "",
       url: "",
       description: "",
-    },
+    }
   });
-
   async function onSubmit(values: z.infer<typeof ProductDetailsSchema>) {
-    const data = await createProduct(values);
+    const action = product == null ? createProduct : updateProduct.bind(null, product.id)
+    const data = await action(values);
     if (data?.message) {
       toast.toast({
         title: data.error ? "Error" : "Success",
@@ -40,7 +48,6 @@ export function ProductDetailsForm() {
       });
     }
   }
-
   return (
     <Form {...form}>
       <form

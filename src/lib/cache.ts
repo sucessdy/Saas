@@ -10,6 +10,9 @@ export const CACHES_TAGS = {
   products: "products",
   productView: "productsView",
   subscription: "subscription",
+  countries: "subscription",
+countryGroups: "subscription",
+
 } as const;
 
 export function getGlobalTag(tag: keyof typeof CACHES_TAGS) {

@@ -13,7 +13,19 @@ const config: Config = {
       animation: {
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-      },
+          "meteor-effect": "meteor 5s linear infinite",
+        },
+        keyframes: {
+          meteor: {
+            "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
+            "70%": { opacity: "1" },
+            "100%": {
+              transform: "rotate(215deg) translateX(-500px)",
+              opacity: "0",
+            },
+          },
+  
+      } ,
       container: {
         center: true,
         padding: "1.5rem",

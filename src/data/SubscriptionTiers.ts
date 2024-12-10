@@ -1,4 +1,4 @@
-export type TierNames  = keyof typeof subscriptionTiers
+export type TierNames = keyof typeof subscriptionTiers;
 
 export const subscriptionTiers = {
   Free: {
@@ -19,6 +19,7 @@ export const subscriptionTiers = {
     maxNumberOfVisits: 10000,
     canAccessAnalytics: true,
     canCustomizeBanner: false,
+
     canRemoveBranding: true,
     // stripePriceId: env.STRIPE_BASIC_PLAN_STRIPE_PRICE_ID,
   },
@@ -40,7 +41,9 @@ export const subscriptionTiers = {
     canAccessAnalytics: true,
     canCustomizeBanner: true,
     canRemoveBranding: true,
+
     borderGradient: true,
+
     // stripePriceId: env.STRIPE_PREMIUM_PLAN_STRIPE_PRICE_ID,
   },
 } as const;

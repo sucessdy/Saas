@@ -3,22 +3,21 @@ import MovingText from "./_components/MovingText";
 import { subscriptionTiersInOrder } from "@/data/SubscriptionTiers";
 import PricingCard from "@/components/PricingCard";
 import Link from "next/link";
-import { Canvas } from '@react-three/fiber';
+
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import TextHoverEffect from "@/components/ui/TextHoverEffect";
 import { FaDiscord, FaMedium, FaTwitter, FaYoutube } from "react-icons/fa6";
 
-
 export default function HomePage() {
   return (
     <>
-      <section className="min-h-screen bg-gradient-to-br   from-[#000000] via-black/5  to-[#000000], hsl(var(--background))_90%)] relative overflow-hidden  flex items-center justify-center text-center text-balance flex-col gap-8 px-4 ">
+      <section className="min-h-screen bg-gradient-to-br   from-[#000000] via-black/5  to-[#000000], hsl(var(--background))_90%)] relative overflow-hidden  flex items-center justify-center text-center text-balance flex-col gap-8 px-4">
         <div className="utility bg-[radial-gradient(circle_at_bottom_right,_#ee82ee),_transparent)] opacity-25 blur-2xl"></div>
         <div className="utility bg-[radial-gradient(circle_at_top_left,_#393BB2,_transparent)] opacity-20 blur-3xl">
           {" "}
         </div>
 
-        <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-purple-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
+        <div className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-purple-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
           <span className="utility overflow-hidden rounded-full">
             <span className="utility rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgb(128, 90, 213)_0%,rgba(rgb(43,19,68))_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
           </span>
@@ -41,7 +40,7 @@ export default function HomePage() {
             </svg>
           </div>
           <span className="absolute -bottom-0 left-[1.125rem] h-[2px] w-[calc(100%-2.25rem)] bg-gradient-to-r from-purple-400/0 via-purple-400/90 to-purple-400/0 transition-opacity duration-500 group-hover:opacity-40" />
-        </button>
+        </div>
         <h1 className="text-3xl relative z-0 md:text-5xl lg:text-[5.5rem] font-bold text-center font-sans tracking-tight bg-[radial-gradient(ellipse at center,#fff,transparent)]   bg-clip-text text-transparent  bg-gradient-to-br  from-neutral-300 to-white  py-2    tracking-tight leading-loose   ">
           {" "}
           Discover Profits With <br />
@@ -57,19 +56,16 @@ export default function HomePage() {
         </p>
 
         <SignedInButton />
-        
-     
       </section>
 
-
-      <section className="bg-secondary-backgound text-primary-foreground   ">
+      <section className="bg-secondary-backgound text-primary-foreground">
         <h2 className="text"> Trusted by Top Companies</h2>
         <MovingText />
       </section>
 
       <section
         id="pricing"
-        className="px-8 py-7 bg-secondary-backgound text-primary-foreground  "
+        className="px-8 py-7 bg-secondary-backgound text-primary-foreground"
       >
         <h3 className="text">Choose your right plan! </h3>
         <p className="para-short"> </p>
@@ -88,7 +84,7 @@ export default function HomePage() {
           <BrandLogo
             className="text-4xl font-bold text-white"
             words={["ArcBot", "ArcLabs"]}
-            framerProps={undefined}
+            // framerProps={undefined}
           />
           <div className="flex flex-row gap-2 text-center  group/link relative  overflow-hidden whitespace-nowrap   text-white before:absolute before:bg-[#16181D]">
             <div className="relative z-10 flex h-8 w-10 shrink-0 items-center justify-center rounded-xl border border-[#2E3038] bg-[#16181D] border-gray-new-90">
@@ -97,15 +93,15 @@ export default function HomePage() {
             </div>
             <div className="relative z-10 flex h-8 w-10 shrink-0 items-center justify-center rounded-xl border border-[#2E3038] bg-[#16181D] border-gray-new-90">
               {" "}
-              <FaYoutube aria-label="Youtube"  />{" "}
+              <FaYoutube aria-label="Youtube" />{" "}
             </div>
             <div className="relative z-10 flex h-8 w-10 shrink-0 items-center justify-center rounded-xl border border-[#2E3038] bg-[#16181D] border-gray-new-90">
               {" "}
-              <FaMedium aria-label="Medium"  />{" "}
+              <FaMedium aria-label="Medium" />{" "}
             </div>
             <div className="relative z-10 flex h-8 w-10 shrink-0 items-center justify-center rounded-xl border border-[#2E3038] bg-[#16181D] border-gray-new-90">
               {" "}
-              <FaDiscord aria-label="Discord"  />{" "}
+              <FaDiscord aria-label="Discord" />{" "}
             </div>
           </div>
         </Link>
@@ -192,7 +188,9 @@ function FooterLinkGroup({
         {links.map((link) => (
           <li key={link.label}>
             {" "}
-            <Link href={link.href} target="_blank">{link.label} </Link>
+            <Link href={link.href} target="_blank">
+              {link.label}{" "}
+            </Link>
           </li>
         ))}
       </ul>

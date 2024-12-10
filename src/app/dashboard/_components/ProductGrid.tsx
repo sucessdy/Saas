@@ -28,15 +28,14 @@ export function ProductGrid({
     id: string;
     name: string;
     url: string;
-    description?: string | null;
+    description?: string | null
   }[];
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4">
-      {" "}
       {products.map((product) => (
         <ProductCard key={product.id} {...product} />
-      ))}{" "}
+      ))}
     </div>
   );
 }
@@ -52,7 +51,7 @@ export function ProductCard({
   description?: string | null;
 }) {
   return (
-    <div
+    <section
       className={cn(
         "w-full mx-auto  border bg-card rounded-xl flex flex-col justify-between"
       )}
@@ -66,21 +65,22 @@ export function ProductCard({
             <Dialog>
               <AlertDialog>
                 <DropdownMenu>
-                  <DropdownMenuTrigger>
+                  <DropdownMenuTrigger asChild>
                     <Button variant="outline" className="size-8 p-0">
-                      <div className="sr-only">Action Menu</div>
+                      <p className="sr-only">Action Menu</p> 
+                      {/* // sr-only */}
                       <DotsHorizontalIcon className="size-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem asChild>
                       <Link href={`/dashboard/products/${id}/edit`}>Edit</Link>
                     </DropdownMenuItem>
-                    <DialogTrigger>
+                    <DialogTrigger asChild>
                       <DropdownMenuItem>Add To Site</DropdownMenuItem>
                     </DialogTrigger>
                     <DropdownMenuSeparator />
-                    <AlertDialogTrigger>
+                    <AlertDialogTrigger asChild>
                       <DropdownMenuItem>Delete</DropdownMenuItem>
                     </AlertDialogTrigger>
                   </DropdownMenuContent>
@@ -94,6 +94,6 @@ export function ProductCard({
         </CardHeader>
         {description && <CardContent>{description}</CardContent>}
       </Card>
-    </div>
+    </section>
   );
 }

@@ -55,7 +55,7 @@ export const ProductCustomizationTable = pgTable("product_customizations", {
   locationMessage: text("location_message")
     .notNull()
     .default(
-      "Hey! It looks like you are from <b>{country}</b>. We support Parity Purchasing Power, so if you need it, use code <b>“{coupon}”</b> to get <b>{discount}%</b> off."
+      "Hey! It looks like you are from <b>{country}</b>. We support Arcbot, so if you need it, use code <b>“{coupon}”</b> to get <b>{discount}%</b> off."
     ),
   backgroundColor: text("background_color")
     .notNull()
@@ -183,7 +183,7 @@ export const UserSubscriptionTable = pgTable(
     stripeSubscriptionItemId: text("stripe_subscription_item_id"),
     stripeSubscriptionId: text("stripe_subscription_id"),
     stripeCustomerId: text("stripe_customer_id"),
-    tier: TierEnum("tier").notNull(), 
+    tier: TierEnum("tier").notNull(),
     createdAt,
     updatedAt,
   },
