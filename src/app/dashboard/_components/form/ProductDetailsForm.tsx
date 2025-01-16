@@ -65,7 +65,7 @@ export function ProductDetailsForm({
                   <Input
                     {...field}
                     className={cn(
-                      "w-full relative text-sm sm:text-base z-50 border text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
+                      "w-full relative text-sm sm:text-base z-0 border text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
                     )}
                   />
                 </FormControl>
@@ -82,7 +82,7 @@ export function ProductDetailsForm({
                   <Input
                     {...field}
                     className={cn(
-                      "w-full relative text-sm sm:text-base z-50 border  text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
+                      "w-full relative text-sm sm:text-base z-0 border  text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
                     )}
                   />
                 </FormControl>

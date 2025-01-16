@@ -9,7 +9,7 @@ import { IoLogoReact } from "react-icons/io5";
 
 export default function MovingText() {
   return (
-    <div className="h-[15rem] rounded-md flex flex-col antialiased bg-secondary-backgound text-primary-foreground   bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div className="h-[15rem] rounded-md flex flex-col antialiased bg-secondary-backgound text-primary-foreground   bg-grid-white/[0.02] items-center justify-center relative overflow-hidden">
       <InfiniteMovingText items={movingText} direction="right" speed="slow" />
     </div>
   );

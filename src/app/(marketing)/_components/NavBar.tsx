@@ -8,7 +8,6 @@ import { BrandLogo } from "@/components/ui/BrandLogo";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import HoveredGradientNavbar from "./HoveresGradientNavbar";
-
 export default function NavBar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const handleClick = () => {
@@ -28,7 +27,6 @@ export default function NavBar() {
     };
   }, [isOpenMenu]);
 
-
   return (
     <header className="mr-auto items-center gap-10 shadow-2xl  fixed p-6 top-0 w-full z-50 bg-black/15 backdrop-blur-md text-balance">
       <nav className="mr-auto container flex items-center font-medium gap-10 overflow-hidden">
@@ -36,7 +34,6 @@ export default function NavBar() {
           <BrandLogo
             className="text-4xl font-bold text-white"
             words={["ArcBot", "ArcLabs"]}
-            // framerProps={undefined}
           />
         </Link>
 

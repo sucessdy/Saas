@@ -25,7 +25,8 @@ export function getProductCountryGroups({
   const cacheFn = dbCache(getProductCountryGroupsInternal, { tags: [] });
   return cacheFn(productId, { userId });
 }
-export function getProducts(userId: string, { limit }: { limit?: number }) {
+
+export function getProducts(userId: string, { limit }: { limit?: number } = {} ) {
   const cacheFn = dbCache(getProductsInternal, {
     tags: [getUserTag(userId, CACHES_TAGS.products)],
   });
@@ -52,23 +53,31 @@ async function getProductCustomizationInternal({
   userId: string
 }) {
   return db.query.ProductCustomizationTable.findFirst({
-    where: ({ productId: id }, { eq }) => eq(id, productId),
+    // where: ({ productId: id }, { eq }) => eq(id, productId), 
+    where: (fields, { eq }) => eq(fields.productId, productId),
   })
 }
   return cacheFn({ productId, userId })
 }
 
-
-export function getProduct({ productId, userId }: { productId: string; userId: string }) {
-  const cacheFn = dbCache(getProductInternal, {
-    tags: [getIdTag(productId, CACHES_TAGS.products), getGlobalTag(CACHES_TAGS.countries)
+// export  function getProduct({ productId, userId }: { productId: string; userId: string; }) {
+//   const cacheFn = dbCache(getProductInternal, {
+//     tags: [getIdTag(productId, CACHES_TAGS.products), getGlobalTag(CACHES_TAGS.countries)
    
-      , getGlobalTag(CACHES_TAGS.countryGroups) 
+//       , getGlobalTag(CACHES_TAGS.countryGroups) 
 
 
-    ],
-  });
-  return cacheFn({ productId, userId });
+//     ],
+//   });
+//   return cacheFn({ productId, userId });
+// }
+
+export function getProduct({ id, userId }: { id: string; userId: string }) {
+  const cacheFn = dbCache(getProductInternal, {
+    tags: [getIdTag(id, CACHES_TAGS.products)],
+  })
+
+  return cacheFn({ id, userId })
 }
 
 
@@ -135,11 +144,11 @@ async function getProductCountryGroupsInternal({
   userId,
   productId,
 }: {
-  userId: string;
-  productId: string;
+  userId: string
+  productId: string
 }) {
-  const product = await getProduct({ productId: productId, userId });
-  if (product == null) return null;
+  const product = await getProduct({ id: productId, userId })
+  if (product == null) return []
 
   const data = await db.query.CountryGroupTable.findMany({
     with: {
@@ -158,7 +167,7 @@ async function getProductCountryGroupsInternal({
         limit: 1,
       },
     },
-  });
+  })
 
   return data.map((groups) => {
     return {
