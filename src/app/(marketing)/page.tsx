@@ -10,6 +10,7 @@ import { FaDiscord, FaMedium, FaTwitter, FaYoutube } from "react-icons/fa6";
 
 export default function HomePage() {
   return (
+   
     <>
       <section className="min-h-screen bg-gradient-to-br   from-[#000000] via-black/5  to-[#000000], hsl(var(--background))_90%)] relative overflow-hidden  flex items-center justify-center text-center text-balance flex-col gap-8 px-4">
         <div className="utility bg-[radial-gradient(circle_at_bottom_right,_#ee82ee),_transparent)] opacity-25 blur-2xl"></div>
@@ -18,9 +19,9 @@ export default function HomePage() {
         </div>
 
         <div className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-purple-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
-          <span className="utility overflow-hidden rounded-full">
-            <span className="utility rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgb(128, 90, 213)_0%,rgba(rgb(43,19,68))_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          </span>
+          <div className="utility overflow-hidden rounded-full">
+            <div className="utility rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgb(128, 90, 213)_0%,rgba(rgb(43,19,68))_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+          </div>
           <div className="relative flex space-x-2 items-center z-0 rounded-full bg-zinc-950 py-[.180rem] px-4  ring-1 ring-white/10 ">
             <span> Optimize Your Pricing Strategy Now! </span>
             <svg
@@ -197,3 +198,4 @@ function FooterLinkGroup({
     </div>
   );
 }
+

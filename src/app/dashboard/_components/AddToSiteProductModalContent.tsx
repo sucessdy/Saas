@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import {
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
@@ -25,7 +26,6 @@ export default function AddToSiteProductModalContent({ id }: { id: string }) {
         <DialogHeader>
           <DialogTitle className="text-2xl "> Start Earning Arcbot</DialogTitle>
           <DialogDescription>
-            {" "}
             All u need to do is copy the below script into your site and your
             customer will start seeing Arcbot discount
           </DialogDescription>
@@ -49,14 +49,14 @@ export default function AddToSiteProductModalContent({ id }: { id: string }) {
                 });
             }}
           >
-            {" "}
             {<Icon className="size-4 mr-2" />}
             {getChildren(copyState)}
           </Button>
-
-          <DialogClose>
+          <DialogFooter className="justify-start"> 
+          <DialogClose asChild>
           <Button variant="outline">Close</Button>
         </DialogClose>
+        </DialogFooter>
         </div>
       </DialogContent>
     </>

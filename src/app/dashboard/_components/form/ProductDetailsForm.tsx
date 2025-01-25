@@ -65,7 +65,7 @@ export function ProductDetailsForm({
                   <Input
                     {...field}
                     className={cn(
-                      "w-full relative text-sm sm:text-base z-0 border text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
+                      "w-full relative text-sm sm:text-base z-0 border text-white bg-transparent  rounded-lg focus:outline-none focus:ring-0 pl-2 sm:pl-5 "
                     )}
                   />
                 </FormControl>
@@ -82,7 +82,7 @@ export function ProductDetailsForm({
                   <Input
                     {...field}
                     className={cn(
-                      "w-full relative text-sm sm:text-base z-0 border  text-white bg-transparent  rounded-xl focus:outline-none focus:ring-0 pl-4 sm:pl-10 "
+                      "w-full relative text-sm sm:text-base z-0 border text-white bg-transparent  rounded-lg focus:outline-none focus:ring-0 pl-2 sm:pl-5"
                     )}
                   />
                 </FormControl>
@@ -106,7 +106,7 @@ export function ProductDetailsForm({
               <FormControl>
                 <Textarea
                   {...field}
-                  className="min-h-20 resize-none rounded-xl"
+                  className="min-h-20 resize-none rounded-lg"
                 />
               </FormControl>
               <FormDescription>
@@ -118,7 +118,7 @@ export function ProductDetailsForm({
         />
         <div className="self-end">
           <Button
-            className=" relative flex space-x-2 items-center justify-start px-6 w-full text-black rounded-xl  h-10 font-medium shadow-input bg-white/90 shadow-[0px_0px_1px_1px_var(--neutral-800)] "
+            className=" relative flex space-x-2 items-center justify-start px-6 w-full text-black rounded-lg  h-10 font-medium shadow-input bg-white/90 shadow-[0px_0px_1px_1px_var(--neutral-800)] "
             disabled={form.formState.isSubmitting}
             type="submit"
           >

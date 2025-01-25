@@ -1,5 +1,5 @@
 "use client";
-import HoveredGradient from "@/app/(marketing)/_components/HoveredGradient";
+// import HoveredGradient from "@/app/(marketing)/_components/HoveredGradient";
 import HoveredGradientNavbar from "@/app/(marketing)/_components/HoveresGradientNavbar";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { Button } from "@/components/ui/button";
@@ -20,17 +20,15 @@ export default function NavBar() {
   const handleClick = () => setIsOpenMenu(!isOpenMenu);
 
   return (
+    
     <header className="mr-auto items-center gap-10 shadow-2xl  fixed p-6 top-0 w-full z-10 bg-black/15 backdrop-blur-md text-balance  ">
       <nav className="mr-auto container flex items-center font-medium gap-10  ">
-        <Link className="mr-auto" href="dashboard">
-          {" "}
+        <Link className="mr-auto" href="/dashboard">
           <BrandLogo
-            className="text-4xl font-bold text-white"
+            className="text-2xl sm:text-4xl font-bold text-white"
             words={["ArcBot", "ArcLabs"]}
-            // framerProps={undefined}
           />
         </Link>
-
         <Button variant="outline" onClick={handleClick} className="md:hidden block z-50  ">
           {" "}
           {isOpenMenu ? (
@@ -39,7 +37,6 @@ export default function NavBar() {
             <TfiLineDouble className="size-5 md:size-7" />
           )}
         </Button>
-
         {/* Desktop */}
         <Link
           href="dashboard/products"
@@ -66,8 +63,7 @@ export default function NavBar() {
         <UserButton />
         {/* mobile */}
         {isOpenMenu && (
-          <div className="fixed inset-0 z-20  flex justify-end  h-[99dvh]  gap-6  w-full bg-black/75 backdrop-blur-4xl md:hidden no-scrollbar overflow-hidden">
-            {/* <div className="flex flex-col pt-24 space-y-2  mr-auto pl-12 bg-gradient-to-t inset-x-0  bg-black  relative"> */}
+          <div className="fixed inset-0 z-20  flex justify-end  h-[99dvh]  gap-6  w-full bg-black/75 backdrop-blur-4xl md:hidden no-scrollbar overflow-hidden"> 
             <HoveredGradientNavbar containerClassName="rounded-lg" className="flex flex-col justify-center  items-center ">
               <Link
                 href="dashboard/products"
@@ -91,9 +87,9 @@ export default function NavBar() {
                 Subscriptions
               </Link>
 
-              <div className="relative inline-flex h-11 overflow-hidden rounded-xl p-px focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 w-[80%] mt-12 ">
+              <div className="relative inline-flex h-11 overflow-hidden rounded-lg p-px focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 w-[80%] mt-12 ">
                 <div className="buttonComponents" />
-                <div className=" relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-slate-950 px-6   text-sm font-medium text-white backdrop-blur-3xl text-balance ">
+                <div className=" relative inline-flex h-full w-full cursor-pointer items-center justify-center rounded-lg bg-slate-950 px-6   text-sm font-medium text-white backdrop-blur-3xl text-balance ">
                   <SignedIn>
                     <Link
                       href="/dashboard"

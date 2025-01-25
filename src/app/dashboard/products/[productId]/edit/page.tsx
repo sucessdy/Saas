@@ -37,6 +37,7 @@ export default async function EditProductPage({
   const tab = searchParams?.tab ?? "details";
 
   return (
+
     <PageWithBackButton
       BackButtonHref="/dashboard/products"
       PageTitle={"Edit Products"} 
@@ -72,8 +73,8 @@ function DetailsTab({
   };
 }) {
   return (
-    <section className="rounded-xl border bg-card text-card-foreground shadow">
-      <Card className="rounded-xl border bg-card text-card-foreground shadow">
+    <section className="rounded-lg border bg-card text-card-foreground shadow">
+      <Card className="rounded-lg border bg-card text-card-foreground shadow">
         <CardHeader>
           <CardTitle className="text-xl">Product Details</CardTitle>
         </CardHeader>
@@ -98,11 +99,11 @@ async function CountryTab({
   });
   console.log(countryGroups);
   return (
-    <section className="rounded-xl border bg-card text-card-foreground shadow">
+    <section className="rounded-xl border bg-card text-card-foreground shadow ">
       <Card>
         <CardHeader>
           <CardTitle className="text-xl">Country Discounts</CardTitle>
-          <CardDescription>
+          <CardDescription className="w-auto">
             Leave the discount field blank if you do not want to display deals
             for any specific parity group.
           </CardDescription>
@@ -147,17 +148,17 @@ async function CustomizationsTab({
   return (
     <section className="rounded-xl border bg-card text-card-foreground shadow">
       <Card>
-        <CardHeader>
-          <CardTitle className="text-xl">Banner Customization</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {/* <ProductCustomizationForm */}
-          {/* // canRemoveBranding={await canRemoveBranding(userId)}
-          // canCustomizeBanner={await canCustomizeBanner(userId)}
-          customization={customization} */}
-          {/* /> */}
-        </CardContent>
-      </Card>
+      <CardHeader>
+        <CardTitle className="text-xl">Banner Customization</CardTitle>
+      </CardHeader>
+      <CardContent>
+        {/* <ProductCustomizationForm
+          canRemoveBranding={await canRemoveBranding(userId)}
+          canCustomizeBanner={await canCustomizeBanner(userId)}
+          customization={customization}
+        /> */}
+      </CardContent>
+    </Card>
     </section>
   );
 }

@@ -26,10 +26,10 @@ export default async function DashboardPage() {
           Products{" "}
           <ArrowRightIcon className="group-hover:translate-x-1 transition-transform" />{" "}
         </Link>
-        <Button className="mt-20">
+        <Button className="mt-20 shadow-xl rounded-lg">
           <Link
             href="/dashboard/products/new"
-            className="inline-flex items-center justify-center px-0 md:px-2 py-2  md:py-2 text-base font-medium text-center"
+            className="inline-flex items-center justify-center px-0 md:px-2 py-2  md:py-4 text-base font-medium text-center"
           >
             <PlusIcon className="size-3 md:size-5 mr-2" /> New Product{" "}
           </Link>{" "}

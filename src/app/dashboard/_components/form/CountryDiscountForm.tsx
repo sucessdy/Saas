@@ -39,8 +39,6 @@ export function CountryDiscountsForm({
   }[];
 }) {
   const { toast } = useToast();
-
-  // Extract default values for clarity
   const defaultValues = {
     groups: countryGroups.map((group) => ({
       countryGroupId: group.id,
@@ -99,9 +97,9 @@ export function CountryDiscountsForm({
       >
         {countryGroups.map((group, index) => (
           <Card key={group.id}>
-            <CardContent className="pt-6 flex items-center">
+            <CardContent className="pt-6 flex items-center ">
               <div>
-                <h2 className="text-muted-foreground text-sm font-semibold mb-2">
+                <h2 className="text-muted-foreground gap-16 text-sm font-semibold mb-2  flex flex-wrap">
                   {group.name}
                 </h2>
                 <div className="flex gap-2 flex-wrap">
@@ -135,12 +133,13 @@ export function CountryDiscountsForm({
                             className="w-24" 
                             {...field}
                             type="number" 
-                            value={field.value ?? ""} 
+                            // value={field.value ?? ""} 
+                            value={field.value  != null && !isNaN(field.value) ?  field.value : "" }
                             onChange={(e) => 
                               field.onChange(e.target.valueAsNumber) 
                             }
                             min="0" 
-                            max="100"
+                            max="100" 
                           />
                         </FormControl>
                         <FormMessage />
@@ -169,7 +168,7 @@ export function CountryDiscountsForm({
           </Card>
         ))}
 
-        <div className="self-end">
+        <div className="self-end rounded-lg">
           <Button disabled={form.formState.isSubmitting} type="submit">
             Save
           </Button>

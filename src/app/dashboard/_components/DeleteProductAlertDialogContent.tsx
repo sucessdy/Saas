@@ -8,7 +8,7 @@ import { useTransition } from "react";
 export function DeleteProductAlertDialogContent({id} : {id : string}){
     const [isDeletePending, startDeleteTransition] = useTransition()
 return (
-   
+  
     <AlertDialogContent>
       <AlertDialogHeader>
         <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>

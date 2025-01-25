@@ -10,13 +10,13 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "text-sm rounded-xl bg-white text-black p-6 px-6 py-5 flex gap-2",
+          "text-sm rounded-lg bg-white text-black p-6 px-6 py-5 flex gap-2",
 
         accent:
-          "bg-gradient-to-br from-purple-600 via-[#9966cc] to-purple-400 rounded-xl px-6 text-sm font-medium text-white backdrop-blur-3xl inset-[-1000%] ",
+          "bg-gradient-to-br from-purple-600 via-[#9966cc] to-purple-400 rounded-lg px-6 text-sm font-medium text-white backdrop-blur-3xl inset-[-1000%] ",
 
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground rounded-xl",
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground rounded-lg",
         secondary:
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
       },
@@ -43,8 +43,6 @@ const Button = React.memo(
   React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant, size, asChild = false, ...props }, ref) => {
       const Comp = asChild ? Slot : "button";
-      // console.log("buttton")
-
       return (
         <Comp
           className={cn(buttonVariants({ variant, size, className }))}
