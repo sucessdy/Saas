@@ -13,7 +13,7 @@ export function PageWithBackButton({
   children: ReactNode;
 }) {
   return (
-    <div className="grid  grid-cols-[auto,1fr] gap-x-4 gap-y-8  ">
+    <div className="px-2 md:px-6 gap-x-4 gap-y-8   ">
       <Button
         className="font-medium  w-5 lg:w-12 shadow-input bg-zinc-900 shadow-[0px_0px_1px_1px_var(--neutral-800)] text-purple-50 mt-12 rounded-lg "
         variant="outline"

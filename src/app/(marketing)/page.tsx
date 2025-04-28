@@ -1,4 +1,4 @@
-import SignedInButton from "@/components/ui/SignedInButton";
+import edInButton from "@/components/ui/SignedInButton";
 import MovingText from "./_components/MovingText";
 import { subscriptionTiersInOrder } from "@/data/SubscriptionTiers";
 import PricingCard from "@/components/PricingCard";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import TextHoverEffect from "@/components/ui/TextHoverEffect";
 import { FaDiscord, FaMedium, FaTwitter, FaYoutube } from "react-icons/fa6";
+import SignedInButton from "@/components/ui/SignedInButton";
 
 export default function HomePage() {
   return (
@@ -57,6 +58,8 @@ export default function HomePage() {
         </p>
 
         <SignedInButton />
+       
+
       </section>
 
       <section className="bg-secondary-backgound text-primary-foreground">

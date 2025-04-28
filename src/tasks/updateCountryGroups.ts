@@ -62,7 +62,7 @@ async function updateCountries() {
       set: {
         name: sql.raw(`excluded.${CountryTable.name.name}`),
         countryGroupId: sql.raw(`excluded.${CountryTable.countryGroupId.name}`),
-      },
+      },                   
     })
   
   return rowCount

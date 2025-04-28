@@ -55,26 +55,6 @@ export function CountryDiscountsForm({
     defaultValues,
   });
 
-  // async function onSubmit(
-  //   values: z.infer<typeof productCountryDiscountsSchema>
-  // ) {
-  //   // Replace the following with your actual API call
-  //   try {
-  //     // const data = await updateCountryDiscounts(productId, values);
-  //     toast({
-  //       title: "Success",
-  //       description: "Country discounts updated successfully.",
-  //       variant: "default",
-  //     });
-  //   } catch (error) {
-  //     toast({
-  //       title: "Error",
-  //       description: "Failed to update country discounts.",
-  //       variant: "destructive",
-  //     });
-  //   }
-  // }
-
   async function onSubmit(
     values: z.infer<typeof productCountryDiscountsSchema>
   ) {
@@ -85,7 +65,7 @@ export function CountryDiscountsForm({
         title: data.error ? "Error" : "Success",
         description: data.message,
         variant: data.error ? "destructive" : "default",
-      })
+      });
     }
   }
 
@@ -96,10 +76,10 @@ export function CountryDiscountsForm({
         className="flex flex-col gap-6"
       >
         {countryGroups.map((group, index) => (
-          <Card key={group.id}>
-            <CardContent className="pt-6 flex items-center ">
+          <Card key={group.id} className="text-card-foreground shadow">
+            <CardContent className=" p-6 pt-6 flex gap-6 items-center border  border-white/10 rounded-lg">
               <div>
-                <h2 className="text-muted-foreground gap-16 text-sm font-semibold mb-2  flex flex-wrap">
+                <h2 className="text-muted-foreground gap-6 text-sm md:text-lg  font-semibold mb-2 ">
                   {group.name}
                 </h2>
                 <div className="flex gap-2 flex-wrap">
@@ -110,6 +90,7 @@ export function CountryDiscountsForm({
                       height={16}
                       alt={country.name}
                       title={country.name}
+                   
                       src={`http://purecatamphetamine.github.io/country-flag-icons/3x2/${country.code.toUpperCase()}.svg`}
                       className="border"
                     />
@@ -120,26 +101,31 @@ export function CountryDiscountsForm({
                 type="hidden"
                 {...form.register(`groups.${index}.countryGroupId`)}
               />
-              <div className="ml-auto flex-shrink-0 flex gap-2 flex-col w-min">
-                <div className="flex gap-4">
+
+              <div className="ml-auto flex-shrink-0 flex gap-2  flex-col w-min ">
+                <div className="flex gap-4  ">
                   <FormField
                     control={form.control}
                     name={`groups.${index}.discountPercentage`}
                     render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Discount %</FormLabel> 
-                        <FormControl> 
-                          <Input 
-                            className="w-24" 
+                      <FormItem className="text-sm md:text-lg">
+                        <FormLabel>Discount</FormLabel>
+                        <FormControl>
+                          <Input
+                            className="w-14 md:w-24  "
                             {...field}
-                            type="number" 
-                            // value={field.value ?? ""} 
-                            value={field.value  != null && !isNaN(field.value) ?  field.value : "" }
-                            onChange={(e) => 
-                              field.onChange(e.target.valueAsNumber) 
+                            type="number"
+                            // value={field.value ?? "" }
+                            value={
+                              field.value != null && !isNaN(field.value)
+                                ? field.value
+                                : ""
                             }
-                            min="0" 
-                            max="100" 
+                            onChange={(e) =>
+                              field.onChange(e.target.valueAsNumber)
+                            }
+                            min="0"
+                            max="100"
                           />
                         </FormControl>
                         <FormMessage />
@@ -150,10 +136,10 @@ export function CountryDiscountsForm({
                     control={form.control}
                     name={`groups.${index}.coupon`}
                     render={({ field }) => (
-                      <FormItem>
+                      <FormItem className="text-sm md:text-lg">
                         <FormLabel>Coupon</FormLabel>
                         <FormControl>
-                          <Input className="w-48" {...field} />
+                          <Input className=" w-20 md:w-48" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -168,9 +154,9 @@ export function CountryDiscountsForm({
           </Card>
         ))}
 
-        <div className="self-end rounded-lg">
+        <div className="self-end mt-4 rounded-lg">
           <Button disabled={form.formState.isSubmitting} type="submit">
-            Save
+            {form.formState.isSubmitting ? "Saving..." : "Save"}
           </Button>
         </div>
       </form>

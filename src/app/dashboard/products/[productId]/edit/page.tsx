@@ -40,7 +40,7 @@ export default async function EditProductPage({
 
     <PageWithBackButton
       BackButtonHref="/dashboard/products"
-      PageTitle={"Edit Products"} 
+      PageTitle={"Edit Product"} 
     >
       <Tabs defaultValue={tab}>
         <TabsList className="bg-background/60">
@@ -111,20 +111,20 @@ async function CountryTab({
         <CardContent>
           <CountryDiscountsForm
             productId={productId}
-            // countryGroups={countryGroups}
+            countryGroups={countryGroups}
 
-            countryGroups={[
-              {
-                countries: [
-                  { code: "US", name: "United State" },
-                  { code: "IN", name: "India" },
-                ],
-                id: "id", 
-                name: "Group 1", 
-                recommendedDiscountPercentage: .1, 
-                discount: {coupon: "Hi" ,  discountPercentage: 0.2}
-              },
-            ]}
+            // countryGroups={[
+            //   {
+            //     countries: [
+            //       { code: "US", name: "United State" },
+            //       { code: "IN", name: "India" },
+            //     ],
+            //     id: "id", 
+            //     name: "Group1", 
+            //     recommendedDiscountPercentage: .1, 
+            //     discount: {coupon: "Hi" ,  discountPercentage: 0.2}
+            //   },
+            // ]}
           />
 
           
