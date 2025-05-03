@@ -33,7 +33,7 @@ export default function NavBar() {
         <Link href="/" className="mr-auto">
           <BrandLogo
             className="text-4xl font-bold text-white"
-            words={["ArcBot", "ArcLabs"]}
+            words={["ArcBot", "ArcBot"]}
           />
         </Link>
 

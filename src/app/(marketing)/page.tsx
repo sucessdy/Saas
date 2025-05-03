@@ -87,7 +87,7 @@ export default function HomePage() {
         <Link href={""}>
           <BrandLogo
             className="text-4xl font-bold text-white"
-            words={["ArcBot", "ArcLabs"]}
+            words={["ArcBot", "ArcBot"]}
             // framerProps={undefined}
           />
           <div className="flex flex-row gap-2 text-center  group/link relative  overflow-hidden whitespace-nowrap   text-white before:absolute before:bg-[#16181D]">

@@ -26,7 +26,7 @@ export default function NavBar() {
         <Link className="mr-auto" href="/dashboard">
           <BrandLogo
             className="text-2xl sm:text-4xl font-bold text-white"
-            words={["ArcBot", "ArcLabs"]}
+            words={["ArcBot", "ArcBot"]}
           />
         </Link>
         <Button variant="outline" onClick={handleClick} className="md:hidden block z-50  ">
