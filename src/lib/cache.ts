@@ -8,10 +8,10 @@ export type ValidTags =
   | ReturnType<typeof getIdTag>;
 export const CACHES_TAGS = {
   products: "products",
-  productView: "productsView",
+  productViews: "productViews",
   subscription: "subscription",
-  countries: "subscription",
-countryGroups: "subscription",
+  countries: "countries",
+  countryGroups: "countryGroups",
 
 } as const;
 

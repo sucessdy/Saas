@@ -39,21 +39,21 @@ export default function NavBar() {
         </Button>
         {/* Desktop */}
         <Link
-          href="dashboard/products"
+          href="/dashboard/products"
           className=" hidden md:flex text-lg font-medium"
         >
           {" "}
           Products{" "}
         </Link>
         <Link
-          href="dashboard/analytics"
+          href="/dashboard/analytics"
           className=" hidden md:flex text-lg font-medium"
         >
           {" "}
           Analytics{" "}
         </Link>
         <Link
-          href="dashboard/subscriptions"
+          href="/dashboard/subscriptions"
           className=" hidden md:flex text-lg font-medium"
         >
           {" "}
@@ -66,21 +66,21 @@ export default function NavBar() {
           <div className="fixed inset-0 z-20  flex justify-end  h-[99dvh]  gap-6  w-full bg-black/75 backdrop-blur-4xl md:hidden no-scrollbar overflow-hidden"> 
             <HoveredGradientNavbar containerClassName="rounded-lg" className="flex flex-col justify-center  items-center ">
               <Link
-                href="dashboard/products"
+                href="/dashboard/products"
                 onClick={handleClick}
                 className="text-new  "
               >
                 Products{" "}
               </Link>
               <Link
-                href="dashboard/analytics"
+                href="/dashboard/analytics"
                 onClick={handleClick}
                 className="text-new "
               >
                 Analytics{" "}
               </Link>
               <Link
-                href="dashboard/subscriptions"
+                href="/dashboard/subscriptions"
                 onClick={handleClick}
                 className="text-new "
               >

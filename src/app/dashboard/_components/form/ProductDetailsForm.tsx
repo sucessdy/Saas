@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { createProduct, updateProduct } from "@/server/actions/products";
 import { useToast } from "@/hooks/use-toast";
+import { RequiredLabelIcon } from "@/components/RequiredLabelIcon";
 
 export function ProductDetailsForm({
   product,
@@ -31,14 +32,17 @@ export function ProductDetailsForm({
   const toast = useToast();
   const form = useForm<z.infer<typeof ProductDetailsSchema>>({
     resolver: zodResolver(ProductDetailsSchema),
-    defaultValues: product?  {...product, description : product.description?? ""  }:  {
-      name: "",
-      url: "",
-      description: "",
-    }
+    defaultValues: product
+      ? { ...product, description: product.description ?? "" }
+      : {
+          name: "",
+          url: "",
+          description: "",
+        },
   });
   async function onSubmit(values: z.infer<typeof ProductDetailsSchema>) {
-    const action = product == null ? createProduct : updateProduct.bind(null, product.id)
+    const action =
+      product == null ? createProduct : updateProduct.bind(null, product.id);
     const data = await action(values);
     if (data?.message) {
       toast.toast({
@@ -60,7 +64,10 @@ export function ProductDetailsForm({
             name="name"
             render={({ field }) => (
               <FormItem className="flex-grow">
-                <FormLabel className="text-balance "> Product Name</FormLabel>
+                <FormLabel className="text-balance ">
+                  {" "}
+                  Product Name <RequiredLabelIcon />{" "}
+                </FormLabel>
                 <FormControl>
                   <Input
                     {...field}
@@ -78,6 +85,7 @@ export function ProductDetailsForm({
             render={({ field }) => (
               <FormItem className="flex-grow">
                 <FormLabel> Enter your website URL</FormLabel>
+                <RequiredLabelIcon />
                 <FormControl>
                   <Input
                     {...field}
@@ -102,6 +110,7 @@ export function ProductDetailsForm({
               <FormLabel className="text-balance  ">
                 {" "}
                 Product Description
+                <RequiredLabelIcon />
               </FormLabel>
               <FormControl>
                 <Textarea

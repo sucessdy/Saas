@@ -107,7 +107,9 @@ function Feature({
   children: ReactNode;
   className?: string;
 }) {
-  return (
+  return ( 
+
+    
     <div className={cn("flex items-center gap-2", className)}>
       <CheckIcon className="size-4 p-px max-w-sm  mx-auto  rounded-full border border-[rgba(255,255,255,0.10)] dark:bg-[rgba(40,40,40,0.70)] bg-violet-300/5 shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] group" />
 

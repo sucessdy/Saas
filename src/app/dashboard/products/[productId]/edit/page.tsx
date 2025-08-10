@@ -17,6 +17,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { canCustomizeBanner, canRemoveBranding } from "@/server/premission";
+import { ProductCustomizationForm } from "@/app/dashboard/_components/form/ProductCustomizationForm";
 
 export default async function EditProductPage({
   params,
@@ -112,19 +114,6 @@ async function CountryTab({
           <CountryDiscountsForm
             productId={productId}
             countryGroups={countryGroups}
-
-            // countryGroups={[
-            //   {
-            //     countries: [
-            //       { code: "US", name: "United State" },
-            //       { code: "IN", name: "India" },
-            //     ],
-            //     id: "id", 
-            //     name: "Group1", 
-            //     recommendedDiscountPercentage: .1, 
-            //     discount: {coupon: "Hi" ,  discountPercentage: 0.2}
-            //   },
-            // ]}
           />
 
           
@@ -144,7 +133,7 @@ async function CustomizationsTab({
   const customization = await getProductCustomization({ productId, userId });
 
   if (customization == null) return notFound();
-
+const canRemove = await canRemoveBranding(userId)
   return (
     <section className="rounded-xl border bg-card text-card-foreground shadow">
       <Card>
@@ -152,11 +141,13 @@ async function CustomizationsTab({
         <CardTitle className="text-xl">Banner Customization</CardTitle>
       </CardHeader>
       <CardContent>
-        {/* <ProductCustomizationForm
+        <ProductCustomizationForm
+        // canRemoveBranding={canRemove}
+// canCustomizeBanner={await canCustomizeBanner(userId)}
           canRemoveBranding={await canRemoveBranding(userId)}
-          canCustomizeBanner={await canCustomizeBanner(userId)}
+          canCustomizeBanner={await canCustomizeBanner(userId) } // || true 
           customization={customization}
-        /> */}
+        />
       </CardContent>
     </Card>
     </section>

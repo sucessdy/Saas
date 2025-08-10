@@ -1,5 +1,7 @@
-export type TierNames = keyof typeof subscriptionTiers;
+import { env } from "./env/server";
 
+export type TierNames = keyof typeof subscriptionTiers;
+export type PaidTierNames = Exclude<TierNames , "Free">
 export const subscriptionTiers = {
   Free: {
     name: "Free",
@@ -9,8 +11,7 @@ export const subscriptionTiers = {
     canAccessAnalytics: false,
     canCustomizeBanner: false,
     canRemoveBranding: false,
-    // stripePriceId: null,
-    // stripePriceId: env.STRIPE_BASIC_PLAN_STRIPE_PRICE_ID,
+    stripePriceId: null,
   },
   Basic: {
     name: "Basic",
@@ -21,7 +22,7 @@ export const subscriptionTiers = {
     canCustomizeBanner: false,
 
     canRemoveBranding: true,
-    // stripePriceId: env.STRIPE_BASIC_PLAN_STRIPE_PRICE_ID,
+    stripePriceId: env.STRIPE_BASIC_PLAN_PRICE_ID
   },
   Standard: {
     name: "Standard",
@@ -31,7 +32,7 @@ export const subscriptionTiers = {
     canAccessAnalytics: true,
     canCustomizeBanner: true,
     canRemoveBranding: true,
-    // stripePriceId: env.STRIPE_STANDARD_PLAN_STRIPE_PRICE_ID,
+    stripePriceId: env.STRIPE_STANDARD_PLAN_PRICE_ID
   },
   Premium: {
     name: "Premium",
@@ -44,7 +45,7 @@ export const subscriptionTiers = {
 
     borderGradient: true,
 
-    // stripePriceId: env.STRIPE_PREMIUM_PLAN_STRIPE_PRICE_ID,
+    stripePriceId: env.STRIPE_PREMIUM_PLAN_PRICE_ID
   },
 } as const;
 
@@ -55,8 +56,8 @@ export const subscriptionTiersInOrder = [
   subscriptionTiers.Premium,
 ] as const;
 
-// export function getTierByPriceId(stripePriceId: string) {
-//   return Object.values(subscriptionTiers).find(
-//     tier => tier.stripePriceId === stripePriceId
-//   )
-// }
+export function  getTierByPriceId(stripePriceId: string) {
+  return Object.values(subscriptionTiers).find(
+    tier => tier.stripePriceId === stripePriceId
+  )
+}

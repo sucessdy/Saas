@@ -2,6 +2,7 @@
 
 import {
   productCountryDiscountsSchema,
+  productCustomizationSchema,
   ProductDetailsSchema,
 } from "@/schema/product";
 import { auth } from "@clerk/nextjs/server";
@@ -9,18 +10,22 @@ import { z } from "zod";
 import {
   createProductDb,
   deleteProductDb,
+  updateProductCustomizationDb,
   updateProductDb,
 } from "../db/products";
 import { updateCountryDiscounts as updateCountryDiscountsDb } from "@/server/db/products";
 import { redirect } from "next/navigation";
+import { canCreateProduct, canCustomizeBanner } from "../premission";
 
 export async function createProduct(
   unsafeData: z.infer<typeof ProductDetailsSchema>
 ): Promise<{ error: boolean; message: string } | undefined> {
   const { userId } = await auth();
   const { success, data } = ProductDetailsSchema.safeParse(unsafeData);
+const canCreate =  await canCreateProduct(userId); 
 
-  if (!success || userId == null) {
+
+  if (!success || userId == null || !canCreate) {
     return { error: true, message: "There was an error creating your product" };
   }
   const { id } = await createProductDb({ ...data, clerkUserId: userId });
@@ -105,4 +110,27 @@ export async function updateCountryDiscounts(
   await updateCountryDiscountsDb(deleteIds, insert, { productId: id, userId });
 
   return { error: false, message: "Country discounts saved" };
+}
+
+
+
+
+export async function updateProductCustomization(
+  id: string,
+  unsafeData: z.infer<typeof productCustomizationSchema>
+) {
+  const { userId } = await auth()
+  const { success, data } = productCustomizationSchema.safeParse(unsafeData)
+  const canCustomize = await canCustomizeBanner(userId)  ;  // || true 
+
+  if (!success || userId == null || !canCustomize) {
+    return {
+      error: true,
+      message: "There was an error updating your banner",
+    }
+  }
+
+  await updateProductCustomizationDb(data, { productId: id, userId })
+
+  return { error: false, message: "Banner updated" }
 }

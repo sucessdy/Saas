@@ -3,8 +3,8 @@ import { z } from "zod";
 
 export const ProductDetailsSchema = z.object({
   name: z.string().min(1, "required"),
-  url: z.string().min(1, "required").transform(removeTrailingSlash),
-  description: z.string(),
+  url:z.string().min(1, "required").transform(removeTrailingSlash),
+  description:  z.string(),
 });
 
 // export const productCountryDiscountsSchema = z.object({
@@ -48,3 +48,16 @@ export const productCountryDiscountsSchema = z.object({
       )
   ),
 });
+
+
+
+export const productCustomizationSchema = z.object({ 
+  classPrefix: z.string().optional(), 
+ locationMessage : z.string().min(1, "Required") , 
+    backgroundColor : z.string().min(1, "Required") 
+    , 
+    textColor : z.string().min(1, "Required") , 
+    fontSize: z.string().min(1, "Required") , 
+    bannerContainer: z.string().min(1, "Required") , 
+    isSticky: z.boolean(),  
+})
